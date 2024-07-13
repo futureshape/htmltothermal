@@ -1,0 +1,17 @@
+name: "HTML to Cat Printer"
+description: "HTML print server for the Cat series of Bluetooth thermal printers"
+version: "0.7"
+slug: "catprinter-html"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+host_dbus: true
+full_access: true
+map:
+  - type: addon_config
+ports:
+  7777/tcp: 7777

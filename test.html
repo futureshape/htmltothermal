@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+<title>Editor.js with Preview and Print</title>
+<style>
+/* Define a single typeface centrally */
+:root {
+    --main-font: 'IBM Plex Sans', sans-serif;
+    --min-font-size: 1.5em;
+}
+
+body {
+    font-family: var(--main-font);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--main-font);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75em;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+h6 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1em;
+    font-weight: 500;
+    font-size: var(--min-font-size);
+}
+
+/* Lists */
+ul, ol {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+}
+
+ul li, ol li {
+    font-size: var(--min-font-size);
+    margin-bottom: 0.5em;
+}
+
+/* Blockquotes */
+blockquote {
+    font-size: var(--min-font-size);
+    margin: 0 1.5em;
+    padding: 0.5em 1em;
+    border-left: 5px solid #ccc;
+    font-style: italic;
+}
+
+/* General Text Elements */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+/* Preformatted Text */
+pre {
+    background-color: #f5f5f5;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+/* Horizontal Rule */
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 2em 0;
+}
+</style>
+<body>
+    <header>
+        <h1>Main Heading (H1)</h1>
+        <p>This is a paragraph under the main heading. It demonstrates the standard text styling for paragraphs.</p>
+    </header>
+
+    <section>
+        <h2>Subheading (H2)</h2>
+        <p>This is a paragraph under the subheading. It continues to show how text elements are styled.</p>
+        
+        <h3>Sub-subheading (H3)</h3>
+        <p>Here's another paragraph, showcasing a different heading level.</p>
+
+        <h4>Fourth Level Heading (H4)</h4>
+        <p>Yet another paragraph, showing consistency in text styling.</p>
+
+        <h5>Fifth Level Heading (H5)</h5>
+        <p>This is a paragraph under a fifth level heading, maintaining the same font family and spacing.</p>
+
+        <h6>Sixth Level Heading (H6)</h6>
+        <p>Finally, a paragraph under the sixth level heading.</p>
+    </section>
+
+    <section>
+        <h2>Lists</h2>
+        <p>Here are some lists to demonstrate list styling:</p>
+        <ul>
+            <li>Unordered list item 1</li>
+            <li>Unordered list item 2</li>
+            <li>Unordered list item 3</li>
+        </ul>
+
+        <ol>
+            <li>Ordered list item 1</li>
+            <li>Ordered list item 2</li>
+            <li>Ordered list item 3</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Blockquote</h2>
+        <blockquote>
+            This is a blockquote. It's used to highlight a section of text, usually a quotation from another source.
+        </blockquote>
+    </section>
+
+    <section>
+        <h2>Inline Text Elements</h2>
+        <p>This is a paragraph with <a href="#">a link</a>, <strong>strong text</strong>, and <em>emphasized text</em> to showcase inline text elements.</p>
+    </section>
+
+    <section>
+        <h2>Preformatted Text</h2>
+        <pre>
+This is preformatted text.
+It preserves whitespace and formatting,
+making it useful for displaying code or other fixed-width content.
+        </pre>
+    </section>
+
+    <section>
+        <h2>Horizontal Rule</h2>
+        <p>The horizontal rule element is styled to provide a visual separation between sections:</p>
+        <hr>
+    </section>
+</body>
+</html>
