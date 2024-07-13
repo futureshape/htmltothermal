@@ -1,11 +1,16 @@
-from playwright.sync_api import sync_playwright
-import os, tempfile, logging
-from flask import Flask, request, send_file, jsonify
+from flask import Flask, request, send_file, jsonify, send_from_directory, abort
 from flask_cors import CORS
+from playwright.sync_api import sync_playwright
+import os
+import tempfile
+import logging
 
 app = Flask(__name__)
 CORS(app)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Define the directory to serve files from
+SERVE_DIRECTORY = '/config'
 
 @app.route('/print', methods=['POST'])
 def print_html():
@@ -48,6 +53,13 @@ def print_html():
             os.remove(temp_file_html.name)
         if os.path.exists(temp_file_img.name):
             os.remove(temp_file_img.name)
+
+@app.route('/<path:filename>', methods=['GET'])
+def serve_files(filename):
+    try:
+        return send_from_directory(SERVE_DIRECTORY, filename)
+    except FileNotFoundError:
+        abort(404)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7777)
