@@ -15,6 +15,7 @@ RUN playwright install --with-deps chromium
 
 COPY server.py /
 COPY index.html /
+COPY default-styles.css /
 
 WORKDIR  /
 COPY run.sh /
