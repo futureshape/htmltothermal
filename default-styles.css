@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --main-font: 'IBM Plex Sans', sans-serif;
+    --min-font-size: 1.5m;
+    --square: 24px;
+    --gap: 8px;
+    --dot: 2px;
+    --colour: #000;
+}
+
+body {
+    font-family: var(--main-font);
+    line-height: 1.2;
+    margin: 0 auto;
+    padding: 0;
+    background-color: white;
+    width: 576px;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--main-font);
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    margin-top: 1.5em;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75em;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+h6 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1em;
+    font-weight: 500;
+    font-size: var(--min-font-size);
+}
+
+/* Lists */
+ul,
+ol {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+}
+
+ul li,
+ol li {
+    font-size: var(--min-font-size);
+    margin-bottom: 0.5em;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checklist li {
+    display: flex;
+    align-items: baseline;
+    /* keeps the line near the text baseline */
+    font-size: 1.75em;
+    min-width: 0;
+    /* allows the dotted line to shrink properly */
+    white-space-collapse: break-spaces;
+}
+
+/* dotted line between text and box */
+.checklist li::before {
+    content: "";
+    order: 1;
+    /* after the text */
+    flex: 1 1 auto;
+    /* fill remaining space */
+    border-bottom: 2px dotted #000;
+    margin: 0 6px 2px 6px;
+    /* adjusted margin to keep spacing consistent */
+    height: 0;
+    /* border-only rule */
+    align-self: baseline;
+    /* aligns the border-bottom with text baseline */
+}
+
+/* checkbox at the very end */
+.checklist li::after {
+    content: "";
+    order: 2;
+    /* after the dotted line */
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000;
+    background: #fff;
+    border-radius: 3px;
+    /* optional */
+}
+
+/* ensure normal collapsing inside, but add visual spacing around the underlined run */
+.checklist li b {
+    white-space: normal;
+    margin-inline: 0.25em;
+    /* creates consistent gap before/after <u> */
+    text-underline-offset: 0.08em;
+    /* optional: nicer underline */
+    text-decoration-thickness: 2px;
+    /* match dotted line weight visually */
+}
