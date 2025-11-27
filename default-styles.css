@@ -2,7 +2,7 @@
 
 :root {
     --main-font: 'IBM Plex Sans', sans-serif;
-    --min-font-size: 1.5m;
+    --min-font-size: 1.75em;
     --square: 24px;
     --gap: 8px;
     --dot: 2px;
