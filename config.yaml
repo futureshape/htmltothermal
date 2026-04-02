@@ -1,6 +1,6 @@
 name: "HTML to Thermal Printer"
 description: "HTML print server for ESC/POS Thermal Printers"
-version: "1.0"
+version: "1.1"
 slug: "htmltothermal"
 init: false
 arch:
@@ -9,6 +9,10 @@ arch:
   - armhf
   - armv7
   - i386
+options:
+  printer_ip: "192.168.1.22"
+schema:
+  printer_ip: str
 map:
   - type: addon_config
 ports:

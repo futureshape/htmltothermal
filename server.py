@@ -51,7 +51,8 @@ def print_html():
         preview_only_param = request.args.get('preview_only', 'false').lower() == 'true'
         
         if not preview_only_param:
-            printer = Network("192.168.1.22") # TODO: make configurable
+            printer_ip = os.environ.get('PRINTER_IP', '192.168.1.22')
+            printer = Network(printer_ip)
             printer.image(os.path.abspath(temp_file_img.name))
             printer.print_and_feed(5)
             printer.close()
