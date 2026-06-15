@@ -282,6 +282,14 @@
         updatePreview(savedData);
 
 
+        function getPrintUrl() {
+            if (window.location.protocol === 'file:') {
+                return 'http://homeassistant.local:7777/print';
+            }
+
+            return new URL('print', window.location.href).toString();
+        }
+
         function postPreview() {
             const previewContent = document.getElementById('preview').innerHTML;
             const headContent = document.head.innerHTML;
@@ -305,16 +313,23 @@
 
             console.log(fullHtmlContent)
 
-            // Post the content to the API
-            fetch('http://homeassistant.local:7777/print', {
+            // Use ingress when served by Home Assistant, or the add-on URL when opened from file://.
+            fetch(getPrintUrl(), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/html'
                 },
                 body: fullHtmlContent
             })
-                .then(response => response.json())
-                .then(data => console.log('Success:', data))
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(message => {
+                            throw new Error(message || `Print request failed with ${response.status}`);
+                        });
+                    }
+                    return response.blob();
+                })
+                .then(() => console.log('Print request sent successfully'))
                 .catch(error => console.error('Error:', error));
         }
     </script>

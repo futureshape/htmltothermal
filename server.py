@@ -7,7 +7,13 @@ import logging
 from escpos.printer import Network
 
 app = Flask(__name__)
-CORS(app)
+CORS(
+    app,
+    resources={r"/print": {"origins": "*"}},
+    allow_headers=["Content-Type"],
+    methods=["POST", "OPTIONS"],
+    allow_private_network=True,
+)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Define the directory to serve files from

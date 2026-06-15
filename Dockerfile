@@ -9,7 +9,7 @@ RUN apt-get install python3 -y \
     python3-pip -y \
     imagemagick -y
 
-RUN pip install flask flask-cors playwright python-escpos setuptools
+RUN pip install flask "flask-cors>=6.0.0" playwright python-escpos setuptools
 
 RUN playwright install --with-deps chromium
 

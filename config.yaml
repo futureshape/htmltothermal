@@ -1,6 +1,6 @@
 name: "HTML to Thermal Printer"
 description: "HTML print server for ESC/POS Thermal Printers"
-version: "1.3"
+version: "1.4"
 slug: "htmltothermal"
 init: false
 arch:
