@@ -275,7 +275,7 @@
         function updatePreview(data) {
             const previewContainer = document.getElementById('preview');
             const html = edjsParser.parse(data);
-            previewContainer.innerHTML = html.join('');
+            previewContainer.innerHTML = Array.isArray(html) ? html.join('') : html;
         }
 
         if (savedData) {
